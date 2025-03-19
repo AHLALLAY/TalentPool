@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('description');
             $table->timestamp('launch_date');
             $table->timestamp('expired_date');
+            $table->foreignId('operator')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
