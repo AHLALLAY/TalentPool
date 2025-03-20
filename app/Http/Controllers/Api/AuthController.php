@@ -10,33 +10,22 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function register(RegisterRequest $request){
-        // dd($request);
+    public function register(RegisterRequest $request)
+    {
         $validated_data = $request->validated();
 
-        $idExisteUser = User::where('email', $validated_data['email'])->first();
-        if($idExisteUser){
-            return response()->json([
-                "message" => "this user alreay has an account",
-            ], 200);
-        }else{
-            $user = User::create($validated_data);
-            $token = $user->createToken('auth_token')->plainTextToken;
-            if($user){
-                return response()->json([
-                    "message" => "user created",
-                    "token" => $token
-                ], 201);
-            }else{
-                return response()->json([
-                    "massage" => "Unexpected error",
-                ], 500);
-            }
-        }
-        
-        return response()->json([
-            "message" => "this user already existe",
-        ], 200);
+        try {
+            $validated_data['password'] = bcrypt($validated_data['password']);
+            User::create($validated_data);
 
+            return response()->json([
+                "message" => "User created successfully",
+            ], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                "message" => "An unexpected error occurred. Please try again later.",
+                "error" => $e->getMessage()
+            ], 500);
+        }
     }
 }
