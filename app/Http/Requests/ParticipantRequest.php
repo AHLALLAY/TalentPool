@@ -23,8 +23,8 @@ class ParticipantRequest extends FormRequest
     {
         return [
             'phone' => ['required', 'string','max:15'],
-            'cv' => ['required','mimes:pdf','max:10000'],
-            'moti_letter' => ['required','mimes:pdf','max:10000'],
+            'cv' => ['required','string','max:500'],
+            'moti_letter' => ['required','string','max:500'],
         ];
     }
 }
