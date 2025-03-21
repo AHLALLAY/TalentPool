@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\OperatorController;
+use App\Http\Controllers\Api\ParticipantController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/user', function (Request $request) {
@@ -10,3 +11,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('/register', [AuthController::class, 'register'])->name('register');
+
+Route::post('/operator/info', [OperatorController::class, 'addOperatorInfo'])->name('OperatorInfo');
+Route::post('/participant/info', [ParticipantController::class, 'addParticipantInfo'])->name('ParticipantInfo');
