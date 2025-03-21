@@ -11,7 +11,7 @@ class ParticipantRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,6 +22,7 @@ class ParticipantRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'user_id' => ['required', 'integer'],
             'phone' => ['required', 'string','max:15'],
             'cv' => ['required','string','max:500'],
             'moti_letter' => ['required','string','max:500'],

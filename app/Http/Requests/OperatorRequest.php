@@ -11,7 +11,7 @@ class OperatorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,8 +22,9 @@ class OperatorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'company' => ['required'],
-            'position' => ['required'],
+            'user_id' => ['resuired', 'integer', 'min:1'],
+            'company' => ['required', 'string', 'max:100'],
+            'position' => ['required', 'string', 'max:50'],
         ];
     }
 }
