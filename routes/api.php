@@ -13,4 +13,6 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 Route::post('/operator/info', [OperatorController::class, 'addOperatorInfo'])->name('OperatorInfo');
+
 Route::post('/participant/info', [ParticipantController::class, 'addParticipantInfo'])->name('ParticipantInfo');
+Route::post('/participant/application', [ParticipantController::class, 'addApplication'])->name('Application');
