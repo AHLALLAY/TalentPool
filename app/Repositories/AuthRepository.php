@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Auth;
+namespace App\Repositories;
 
-use App\Auth\AuthRepositoryInterface;
+use App\Repositories\AuthRepositoryInterface;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
