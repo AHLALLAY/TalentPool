@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
-use App\Repositories\AuthRepositoryInterface;
+use App\Interfaces\AuthRepositoryInterface;
 
 class AuthController extends Controller
 {
