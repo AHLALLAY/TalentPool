@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Interfaces;
 
-interface OperatorInterface
+interface OperatorRepositoryInterface
 {
     public function addPost();
     public function updatePost($id);
