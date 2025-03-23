@@ -4,7 +4,7 @@ namespace App\Interfaces;
 
 interface OperatorRepositoryInterface
 {
-    public function addPost();
+    public function addPost($data);
     public function updatePost($id);
     public function deletePost($id);
     public function displayMyPosts();
