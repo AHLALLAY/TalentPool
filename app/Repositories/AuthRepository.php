@@ -5,38 +5,47 @@ namespace App\Repositories;
 use App\Repositories\AuthRepositoryInterface;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthRepository implements AuthRepositoryInterface
 {
-    public function register(array $data)
+    public function register($data)
     {
-        // Créer un nouvel utilisateur
+        if (!is_array($data)) {
+            return response()->json([
+                "message" => "Entries must be an array"
+            ], 400); // Bad Request
+        }
+
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => Hash::make($data['password']),
+            'roles' => $data['roles']
         ]);
 
         return $user;
     }
 
-    public function login(array $data)
+    public function login($data)
     {
-        // Vérifier les informations d'identification
-        if (!$token = JWTAuth::attempt($data)) {
-            return null; // Retourner null si les informations sont invalides
+        if (!is_array($data)) {
+            return response()->json([
+                "message" => "Entries must be an array"
+            ], 400); // "Bad Request"
         }
 
-        return $token; // Retourner le token JWT
+        if (!$token = JWTAuth::attempt($data)) {
+            return null;
+        }
+
+        return $token;
     }
 
     public function logout()
     {
-        // Invalider le token JWT
         JWTAuth::invalidate(JWTAuth::getToken());
-
-        // Déconnecter l'utilisateur
         Auth::logout();
 
         return true;
