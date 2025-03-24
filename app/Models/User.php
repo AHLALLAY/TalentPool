@@ -20,6 +20,10 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $fillable = ['name','email','password','roles'];
 
+    public function poste(){
+        $this->hasMany(Poste::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
