@@ -21,19 +21,19 @@ class PosteRepository implements PosteRepositoryInterface
         ]);
         return $post;
     }
-    public function updatePost($id){
+    public function updatePost($posteId){
 
     }
-    public function deletePost($id){
+    public function deletePost($posteId){
 
     }
-    public function displayMyPosts(){
-
+    public function displayMyPosts($userId){
+        
     }
     public function displayApplicationOnMyPosts(){
 
     }
-    public function updateApplicationStatus($id){
+    public function updateApplicationStatus($appId){
 
     }
     public function addInfo($data){

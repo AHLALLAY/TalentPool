@@ -5,11 +5,11 @@ namespace App\Interfaces;
 interface PosteRepositoryInterface
 {
     public function addPost($data);
-    public function updatePost($id);
-    public function deletePost($id);
-    public function displayMyPosts();
+    public function updatePost($postId);
+    public function deletePost($postId);
+    public function displayMyPosts($userId);
     public function displayApplicationOnMyPosts();
-    public function updateApplicationStatus($id);
+    public function updateApplicationStatus($appId);
     public function addInfo($data);
     // statistics
     public function countMyPosts();
