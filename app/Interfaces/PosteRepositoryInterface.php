@@ -2,7 +2,7 @@
 
 namespace App\Interfaces;
 
-interface OperatorRepositoryInterface
+interface PosteRepositoryInterface
 {
     public function addPost($data);
     public function updatePost($id);

@@ -2,10 +2,10 @@
 
 namespace App\Repositories;
 
-use App\Interfaces\OperatorRepositoryInterface;
+use App\Interfaces\PosteRepositoryInterface;
 use App\Models\Poste;
 
-class OperatorRepository implements OperatorRepositoryInterface
+class PosteRepository implements PosteRepositoryInterface
 {
     public function addPost($data){
         if(!is_array($data)){
