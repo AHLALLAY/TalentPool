@@ -26,7 +26,7 @@ class PosteRequest extends FormRequest
             'title' => ['required', 'string', 'max:100'],
             'description' => ['required', 'string', 'min:20', 'max:1000'],
             'expired_date' => ['required', 'date'],
-            'user_id' => ['required', 'integer', 'min:1'],
+            'user_id' => ['required', 'integer', 'min:1', 'exists:users,id'],
         ];
     }
 }
