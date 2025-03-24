@@ -11,23 +11,26 @@ class AuthController extends Controller
 {
     protected $authRepository;
 
-    public function __construct(AuthRepositoryInterface $authRepository){
+    public function __construct(AuthRepositoryInterface $authRepository)
+    {
         $this->authRepository = $authRepository;
     }
 
-    public function register(RegisterRequest $request){
+    public function register(RegisterRequest $request)
+    {
         $user = $this->authRepository->register($request->only('name', 'email', 'password', 'roles'));
         // $user = $this->authRepository->register($request->all());
-        
+
         return response()->json([
             "message" => "User registered successfully"
         ], 201);
     }
 
-    public function login(LoginRequest $request){   
+    public function login(LoginRequest $request)
+    {
         $token = $this->authRepository->login($request->only('email', 'password'));
 
-        if(!$token){
+        if (!$token) {
             return response()->json([
                 "message" => "Unauthorazed"
             ], 401);
@@ -37,5 +40,15 @@ class AuthController extends Controller
             "token" => $token,
             "token_type" => "bearer"
         ], 200);
+    }
+
+    public function logout()
+    {
+        try {
+            $this->authRepository->logout();
+            return response()->json(['message' => 'Successfully logged out'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 400);
+        }
     }
 }
