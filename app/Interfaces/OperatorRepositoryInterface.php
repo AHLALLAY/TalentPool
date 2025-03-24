@@ -10,6 +10,7 @@ interface OperatorRepositoryInterface
     public function displayMyPosts();
     public function displayApplicationOnMyPosts();
     public function updateApplicationStatus($id);
+    public function addInfo($data);
     // statistics
     public function countMyPosts();
     public function PostWithMaxApplication();

@@ -36,6 +36,9 @@ class OperatorRepository implements OperatorRepositoryInterface
     public function updateApplicationStatus($id){
 
     }
+    public function addInfo($data){
+
+    }
     // statistics
     public function countMyPosts(){
 
