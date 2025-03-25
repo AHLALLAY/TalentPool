@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Interfaces\AuthRepositoryInterface;
+use App\Reposotories\Interfaces\AuthRepositoryInterface;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -10,33 +10,15 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthRepository implements AuthRepositoryInterface
 {
-    public function register($data)
+    public function register(array $data)
     {
-        if (!is_array($data)) {
-            return response()->json([
-                "message" => "Entries must be an array"
-            ], 400); // Bad Request
-        }
-
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'roles' => $data['roles']
-        ]);
-
-        return $user;
+        return User::create($data);
     }
 
-    public function login($data)
+    public function login(array $credentials)
     {
-        if (!is_array($data)) {
-            return response()->json([
-                "message" => "Entries must be an array"
-            ], 400); // "Bad Request"
-        }
 
-        if (!$token = JWTAuth::attempt($data)) {
+        if (!$token = JWTAuth::attempt($credentials)) {
             return null;
         }
 
