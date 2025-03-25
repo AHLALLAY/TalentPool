@@ -4,8 +4,8 @@ namespace App\Providers;
 
 use App\Repositories\AuthRepository;
 use App\Repositories\PosteRepository;
-use App\Reposotories\Interfaces\AuthRepositoryInterface as InterfacesAuthRepositoryInterface;
-use App\Reposotories\Interfaces\PosteRepositoryInterface as InterfacesPosteRepositoryInterface;
+use App\Repositories\Interfaces\AuthRepositoryInterface;
+use App\Repositories\Interfaces\PosteRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,8 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(InterfacesAuthRepositoryInterface::class,AuthRepository::class);
-        $this->app->bind(InterfacesPosteRepositoryInterface::class, PosteRepository::class);
+        $this->app->bind(AuthRepositoryInterface::class,AuthRepository::class);
+        $this->app->bind(PosteRepositoryInterface::class, PosteRepository::class);
     }
 
     /**
