@@ -11,8 +11,7 @@ class PosteRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        $user = $this->user();
-        return $user && $user->roles == 'Operator';
+        return true;
     }
 
     /**
