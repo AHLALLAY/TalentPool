@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Reposotories\Interfaces;
+namespace App\Repositories\Interfaces;
 
 interface PosteRepositoryInterface
 {

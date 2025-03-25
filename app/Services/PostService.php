@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Reposotories\Interfaces\PosteRepositoryInterface;
+use App\Repositories\Interfaces\PosteRepositoryInterface;
 use App\Models\Poste;
 
 class PostService
