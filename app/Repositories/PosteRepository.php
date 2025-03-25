@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Interfaces\PosteRepositoryInterface;
+use App\Reposotories\Interfaces\PosteRepositoryInterface;
 use App\Models\Poste;
 
 class PosteRepository implements PosteRepositoryInterface
@@ -10,7 +10,7 @@ class PosteRepository implements PosteRepositoryInterface
     public function addPost($data){
         if(!is_array($data)){
             return response()->json([
-                "message" => "Entries must be array"
+                "message" => "Entries must be table of 'key : value'"
             ], 400);
         }
         $post = Poste::create([
