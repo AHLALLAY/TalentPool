@@ -3,36 +3,36 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Services\AuthService;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
-use App\Interfaces\AuthRepositoryInterface;
 
 class AuthController extends Controller
 {
-    protected $authRepository;
+    protected $authService;
 
-    public function __construct(AuthRepositoryInterface $authRepository)
+    public function __construct(AuthService $authService)
     {
-        $this->authRepository = $authRepository;
+        $this->authService = $authService;
     }
 
     public function register(RegisterRequest $request)
     {
-        $user = $this->authRepository->register($request->only('name', 'email', 'password', 'roles'));
-        // $user = $this->authRepository->register($request->all());
+        $user = $this->authService->register($request->validated());
 
         return response()->json([
-            "message" => "User registered successfully"
+            "message" => "User registered successfully",
+            "user" => $user
         ], 201);
     }
 
     public function login(LoginRequest $request)
     {
-        $token = $this->authRepository->login($request->only('email', 'password'));
-
+        $token = $this->authService->login($request->validated());
+        
         if (!$token) {
             return response()->json([
-                "message" => "Unauthorazed"
+                "message" => "Unauthorized"
             ], 401);
         }
 
@@ -45,7 +45,7 @@ class AuthController extends Controller
     public function logout()
     {
         try {
-            $this->authRepository->logout();
+            $this->authService->logout();
             return response()->json(['message' => 'Successfully logged out'], 200);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 400);
