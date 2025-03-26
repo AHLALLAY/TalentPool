@@ -4,16 +4,15 @@ namespace App\Repositories\Interfaces;
 
 interface PosteRepositoryInterface
 {
-    public function addPost($data);
-    public function updatePost($postId);
-    public function deletePost($postId);
-    public function displayMyPosts($userId);
-    public function displayApplicationOnMyPosts();
-    public function updateApplicationStatus($appId);
-    public function addInfo($data);
+    public function addPost(array $data);
+    public function updatePost(int $postId, array $data);
+    public function deletePost(int $postId);
+    public function displayMyPosts(int $userId);
+    public function displayApplicationOnMyPosts(int $userId);
+    public function updateApplicationStatus(int $appId, string $status);
+    public function addInfo(array $data);
     // statistics
-    public function countMyPosts();
-    public function PostWithMaxApplication();
-    public function PostWithMinApplication();
-    
+    public function countMyPosts(int $userId);
+    public function PostWithMaxApplication(int $userId);
+    public function PostWithMinApplication(int $userId);
 }
