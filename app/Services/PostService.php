@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Repositories\Interfaces\PosteRepositoryInterface;
-use App\Models\Poste;
 
 class PostService
 {
@@ -14,35 +13,54 @@ class PostService
         $this->posteRepository = $posteRepository;
     }
 
-    public function addPost(array $data){
-        $this->posteRepository->addPost($data);
+    public function addPost(array $data)
+    {
+        return $this->posteRepository->addPost($data);
     }
-    public function updatePost($posteId){
 
+    public function updatePost($postId, array $data)
+    {
+        return $this->posteRepository->updatePost($postId, $data);
     }
-    public function deletePost($posteId){
 
+    public function deletePost($postId)
+    {
+        return $this->posteRepository->deletePost($postId);
     }
-    public function displayMyPosts($userId){
-        
-    }
-    public function displayApplicationOnMyPosts(){
 
+    public function displayMyPosts($userId)
+    {
+        return $this->posteRepository->displayMyPosts($userId);
     }
-    public function updateApplicationStatus($appId){
 
+    public function displayApplicationOnMyPosts($userId)
+    {
+        return $this->posteRepository->displayApplicationOnMyPosts($userId);
     }
-    public function addInfo($data){
 
+    public function updateApplicationStatus($appId, $status)
+    {
+        return $this->posteRepository->updateApplicationStatus($appId, $status);
     }
-    // statistics
-    public function countMyPosts(){
 
+    public function addInfo($data)
+    {
+        return $this->posteRepository->addInfo($data);
     }
-    public function PostWithMaxApplication(){
 
+    // Statistics
+    public function countMyPosts($userId)
+    {
+        return $this->posteRepository->countMyPosts($userId);
     }
-    public function PostWithMinApplication(){
 
+    public function PostWithMaxApplication($userId)
+    {
+        return $this->posteRepository->PostWithMaxApplication($userId);
+    }
+
+    public function PostWithMinApplication($userId)
+    {
+        return $this->posteRepository->PostWithMinApplication($userId);
     }
 }
