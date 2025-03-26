@@ -10,12 +10,7 @@ class PosteRepository implements PosteRepositoryInterface
 {
     public function addPost($data)
     {
-        return Poste::create([
-            'title' => $data['title'],
-            'description' => $data['description'],
-            'expired_date' => $data['expired_date'],
-            'user_id' => $data['user_id']
-        ]);
+        return Poste::create($data);
     }
 
     public function updatePost($postId, $data)

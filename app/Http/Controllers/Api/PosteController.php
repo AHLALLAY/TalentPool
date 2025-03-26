@@ -28,13 +28,10 @@ class PosteController extends Controller
     {
         try {
             $data = $request->validated();
-            $data['user_id'] = $this->user->id;
-
-            $post = $this->postService->addPost($data);
+            $this->postService->addPost($data);
 
             return response()->json([
                 "message" => "Post créé avec succès",
-                "data" => $post
             ], 201);
         } catch (\Exception $e) {
             return response()->json([
