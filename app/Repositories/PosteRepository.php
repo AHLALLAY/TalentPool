@@ -5,7 +5,6 @@ namespace App\Repositories;
 use App\Interfaces\PosteRepositoryInterface;
 use App\Models\Poste;
 use App\Models\Application;
-use Illuminate\Support\Facades\DB;
 
 class PosteRepository implements PosteRepositoryInterface
 {
