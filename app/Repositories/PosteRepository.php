@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Repositories\Interfaces\PosteRepositoryInterface;
+use App\Interfaces\PosteRepositoryInterface;
 use App\Models\Poste;
 use App\Models\Application;
 use Illuminate\Support\Facades\DB;

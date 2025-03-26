@@ -4,8 +4,8 @@ namespace App\Providers;
 
 use App\Repositories\AuthRepository;
 use App\Repositories\PosteRepository;
-use App\Repositories\Interfaces\AuthRepositoryInterface;
-use App\Repositories\Interfaces\PosteRepositoryInterface;
+use App\Interfaces\AuthRepositoryInterface;
+use App\Interfaces\PosteRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
