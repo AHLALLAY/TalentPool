@@ -18,11 +18,10 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
-        $user = $this->authService->register($request->validated());
+        $this->authService->register($request->validated());
 
         return response()->json([
-            "message" => "User registered successfully",
-            "user" => $user
+            "message" => "[^_^] User registered successfully",
         ], 201);
     }
 
@@ -32,13 +31,13 @@ class AuthController extends Controller
         
         if (!$token) {
             return response()->json([
-                "message" => "Unauthorized"
+                "message" => "[X] Unauthorized"
             ], 401);
         }
 
         return response()->json([
-            "token" => $token,
-            "token_type" => "bearer"
+            "message" => "{^_^} Welcome Back",
+            "token" => $token
         ], 200);
     }
 
@@ -46,7 +45,7 @@ class AuthController extends Controller
     {
         try {
             $this->authService->logout();
-            return response()->json(['message' => 'Successfully logged out'], 200);
+            return response()->json(['message' => '(!_!) Goodbye'], 200);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 400);
         }
