@@ -41,11 +41,11 @@ class PosteController extends Controller
         }
     }
 
-    public function updatePost(PosteRequest $request, $id)
+    public function updatePost(PosteRequest $request, $postId)
     {
         try {
             $data = $request->validated();
-            $post = $this->postService->updatePost($id, $data, $this->user->id);
+            $post = $this->postService->updatePost($postId, $data);
 
             return response()->json([
                 "message" => "Post mis à jour avec succès",
