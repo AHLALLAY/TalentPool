@@ -1,6 +1,6 @@
 # 🚀 TalentPool API
 
-**Assigné à**: Houssni Ouchad  
+**Assigné par**: Houssni Ouchad  
 **Créé le**: 18/03/2025  
 
 **Bute**: Développement d’une API Laravel pour gérer les annonces, les candidatures et le suivi des recrutements pour une entreprise.
@@ -35,7 +35,7 @@ Modernisation des Applications Web avec Laravel et l'Intégration de REST APIs
 | Développer des composants d’accès aux données SQL et NoSQL | niveau 3, transposerValidé |
 | Développer des composants métier coté serveur | niveau 3, transposerValidé |
 | Documenter le déploiement d’une application dynamique web ou web mobile | niveau 2, adapterValidé |
-|---------------------------------------------------------------------------------------------------|
+
 
 **Ressources**
 ![endpoints.png](https://simplonline-v3-prod.s3.eu-west-3.amazonaws.com/media/image/png/endpoints-67d9dd93e17eb685146900.png)
@@ -47,27 +47,27 @@ Modernisation des Applications Web avec Laravel et l'Intégration de REST APIs
 ## 🎯 Fonctionnalités
 
 ### 📢 Gestion des Annonces
-- ✏️ En tant que **recruteur**, je veux ajouter, modifier et supprimer une annonce.
-- 🔍 En tant que **candidat**, je veux récupérer la liste des annonces et leurs détails pour postuler.
+- ✏️ En tant que **recruteur**, je veux _ajouter (create)_, _modifier (update)_ et _supprimer (delete)_ une annonce.
+- 🔍 En tant que **candidat**, je veux _récupérer la liste des annonces (read)_ et leurs _détails (read)_ pour postuler.
 
 ### 📄 Gestion des Candidatures
-- 📤 En tant que **candidat**, je veux postuler à une annonce en envoyant mon CV et ma lettre de motivation.
-- ❌ En tant que **candidat**, je veux retirer ma candidature.
-- 🎚️ En tant que **recruteur**, je veux filtrer et récupérer les candidatures associées à mes annonces.
+- 📤 En tant que **candidat**, je veux _postuler (create)_ à une annonce en envoyant mon _CV_ et ma _lettre de motivation_.
+- ❌ En tant que **candidat**, je veux _retirer (delete)_ ma candidature.
+- 🎚️ En tant que **recruteur**, je veux _filtrer (search)_ et _récupérer (read)_ les candidatures associées à mes annonces.
 ​
 ### 🔄 Suivi des Candidatures
-- 🔄 En tant que **recruteur**, je veux mettre à jour le statut d’une candidature.
-- ✉️ En tant que **candidat**, je veux être notifié d’un changement de statut par email.
+- 🔄 En tant que **recruteur**, je veux _mettre à jour (update)_ le statut d’une candidature.
+- ✉️ En tant que **candidat**, je veux être _notifié_ d’un changement de statut par _email_.
 ​
 
 ### 🔐 Authentification & Sécurité
-- 👤 En tant qu’**utilisateur**, je veux m’inscrire et me connecter avec JWT ou Sanctum.
-- 🔄 En tant qu’**utilisateur**, je veux réinitialiser mon mot de passe.
-- 🏷️ À l’inscription, l’**utilisateur** choisit son rôle (candidat ou recruteur), et celui-ci ne peut être changé.
+- 👤 En tant qu’**utilisateur**, je veux m’_inscrire_ et me _connecter_ avec _JWT_ ou _Sanctum_.
+- 🔄 En tant qu’**utilisateur**, je veux _réinitialiser_ mon _mot de passe_.
+- 🏷️ À l’inscription, l’**utilisateur** _choisit son rôle_ (candidat ou recruteur), et celui-ci _ne peut être changé_.
 
 ### 📊 Statistiques & Rapports
-- En tant que **recruteur**, je veux obtenir des statistiques sur mes annonces et candidatures.
-- En tant qu’**administrateur**, je veux obtenir des statistiques globales sur l’utilisation de la plateforme.
+- En tant que **recruteur**, je veux obtenir des _statistiques_ sur mes _annonces_ et _candidatures_.
+- En tant qu’**administrateur**, je veux obtenir des _statistiques globales_ sur l’utilisation de la plateforme.
 ​
 
 ## 🔧 Points Clés
