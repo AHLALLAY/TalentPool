@@ -1,66 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚀 TalentPool API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Assigné à**: Houssni Ouchad  
+**Créé le**: 18/03/2025  
 
-## About Laravel
+**Bute**: Développement d’une API Laravel pour gérer les annonces, les candidatures et le suivi des recrutements pour une entreprise.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Technologies**: PHP, Git, Web Services, UML
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
+## 📌 Contexte Professionnel
+### Modernisation des Applications Web avec Laravel et Intégration de REST APIs
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Situation professionnelle**
+Modernisation des Applications Web avec Laravel et l'Intégration de REST APIs
 
-## Learning Laravel
+**Besoin visé ou problème rencontré**
+- Modernisation des applications web existantes pour répondre aux besoins changeants du marché et des utilisateurs. 
+- Intégration de nouvelles fonctionnalités via des REST APIs pour améliorer la performance et l'expérience utilisateur. 
+- Défi : migrer d'une architecture legacy à une architecture flexible tout en intégrant des services externes via des REST APIs.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Compétences visées**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+| Compétences | Niveau |
+|------------|--------|
+| Contribuer au pilotage de l’organisation du travail individuel et collectif afin de faciliter la communication, la collaboration et la gestion des imprévus au sein de l’équipe | niveau 3, transposerValidé |
+| Définir le périmètre d’un problème rencontré en adoptant une démarche inductive afin de permettre la recherche de solution | niveau 3, transposerValidé |
+| Rechercher de façon méthodique une ou des solutions au problème rencontré afin de retenir une solution adaptée au contexte | niveau 3, transposerValidé |
+| Partager la solution adoptée en utilisant les moyens de partage de connaissance ou de documentation disponibles afin de contribuer au développement de la connaissance de l’entreprise | niveau 3, transposerValidé |
+| Présenter un travail réalisé en synthétisant ses résultats, sa démarche et en répondant aux questions afin de le restituer au commanditaire | niveau 3, transposerValidé |
+| Se familiariser avec les codes et la culture propres à son environnement professionnel afin d’y faciliter son intégration | niveau 3, transposerValidé |
+| Interagir dans un contexte professionnel de façon respectueuse et constructive pour favoriser la collaboration | niveau 3, transposerValidé |
+| Faciliter un temps de travail collectif en assurant une communication constructive entre les participants dans un cadre de travail clair pour permettre l’implication de tous | niveau 3, transposerValidé |
+| Mettre en place une base de données relationnelle | niveau 3, transposerValidé |
+| Développer des composants d’accès aux données SQL et NoSQL | niveau 3, transposerValidé |
+| Développer des composants métier coté serveur | niveau 3, transposerValidé |
+| Documenter le déploiement d’une application dynamique web ou web mobile | niveau 2, adapterValidé |
+|---------------------------------------------------------------------------------------------------|
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Ressources**
+![endpoints.png](https://simplonline-v3-prod.s3.eu-west-3.amazonaws.com/media/image/png/endpoints-67d9dd93e17eb685146900.png)
 
-## Laravel Sponsors
+**Contexte du projet**
+- Une entreprise souhaite développer une solution de gestion des recrutements pour faciliter la mise en relation entre recruteurs et candidats. En tant que développeur, tu es chargé de concevoir une API en Laravel qui permettra de gérer les annonces, les candidatures et le suivi des recrutements. L’architecture devra intégrer le Repository Pattern et une couche Service pour assurer la modularité et la maintenabilité du code.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
+## 🎯 Fonctionnalités
 
-### Premium Partners
+### 📢 Gestion des Annonces
+- ✏️ En tant que **recruteur**, je veux ajouter, modifier et supprimer une annonce.
+- 🔍 En tant que **candidat**, je veux récupérer la liste des annonces et leurs détails pour postuler.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 📄 Gestion des Candidatures
+- 📤 En tant que **candidat**, je veux postuler à une annonce en envoyant mon CV et ma lettre de motivation.
+- ❌ En tant que **candidat**, je veux retirer ma candidature.
+- 🎚️ En tant que **recruteur**, je veux filtrer et récupérer les candidatures associées à mes annonces.
+​
+### 🔄 Suivi des Candidatures
+- 🔄 En tant que **recruteur**, je veux mettre à jour le statut d’une candidature.
+- ✉️ En tant que **candidat**, je veux être notifié d’un changement de statut par email.
+​
 
-## Contributing
+### 🔐 Authentification & Sécurité
+- 👤 En tant qu’**utilisateur**, je veux m’inscrire et me connecter avec JWT ou Sanctum.
+- 🔄 En tant qu’**utilisateur**, je veux réinitialiser mon mot de passe.
+- 🏷️ À l’inscription, l’**utilisateur** choisit son rôle (candidat ou recruteur), et celui-ci ne peut être changé.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 📊 Statistiques & Rapports
+- En tant que **recruteur**, je veux obtenir des statistiques sur mes annonces et candidatures.
+- En tant qu’**administrateur**, je veux obtenir des statistiques globales sur l’utilisation de la plateforme.
+​
 
-## Code of Conduct
+## 🔧 Points Clés
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- 🛡️ JWT ou Sanctum pour l’authentification sécurisée.
+- 🔒 Permissions basées sur Laravel Gates & Policies pour restreindre l’accès selon les rôles.
+- Candidats et recruteurs s’inscrivent et choisissent leur rôle dès le départ.
+- Statistiques pour recruteurs et administrateurs afin d’analyser l’activité de la plateforme.
+- 📝 En tant que développeur, je veux une documentation détaillée de l’API.
+- 🧪 Mise en place de tests unitaires (avec PHPUnit ou Pest) pour les fonctionnalités clés de l'API.
 
-## Security Vulnerabilities
+---
+## 📋 Modalités Pédagogiques
+- **Type**: Travail individuel
+- **Durée**: 8 jours
+- **Dates**:
+  - 🚀 Lancement: 19/03/2025 à 09h30
+  - ⏳ Deadline: 28/03/2025 avant 16h00
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
+## 📝 Modalités d'Évaluation
+**Présentation (1h)**:
+1. 🎬 Démo API sous Postman (5min)
+2. 💻 Explication du code (10min)
+3. ❓ Quizz Q/R (45min)
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+## 📦 Livrables Requis
+- 📊 Diagrammes UML
+- 💾 Code source documenté
+- 🗃️ Base de données avec données de test
+- 📤 Collection Postman
+- 📚 Documentation technique (Swagger ou alternative)
