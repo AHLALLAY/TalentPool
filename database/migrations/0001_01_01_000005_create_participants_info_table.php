@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('operators', function (Blueprint $table) {
+        Schema::create('participants_info', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('campany');
-            $table->string('position');
+            $table->string('cv');
+            $table->string('motiv')->nullable();
+            $table->foreignId('participant_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('operators');
+        Schema::dropIfExists('participants_info');
     }
 };
