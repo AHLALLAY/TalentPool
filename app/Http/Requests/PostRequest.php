@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostesRequest extends FormRequest
+class PostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,12 +22,10 @@ class PostesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'max:50'],
-            'type' => ['required', 'string', 'in:stage,CDI,CDD,Anapec'],
-            'description' => ['required', 'string', 'max:5000', 'min:50'],
-            'launch_date' => ['required', 'date'],
+            'title' => ['required', 'string', 'max:100'],
+            'description' => ['required', 'string', 'max:1000'],
             'expired_date' => ['required', 'date'],
-            'operator' => ['required', 'integer'],
+            'operator_id' => ['required', 'integer', 'min:1', 'exists:users,id'],
         ];
     }
 }
