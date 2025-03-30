@@ -6,6 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Participant extends Model
 {
-    protected $fillable = ['phone', 'cv', 'moti_letter', 'user_id'];
-
+    protected $table = 'participants_info';
+    protected $fillable = ['cv', 'motiv', 'participant_id'];
+    
+    public function posts() {
+        return $this->belongsToMany(Post::class, 'applications');
+    }
+    
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
