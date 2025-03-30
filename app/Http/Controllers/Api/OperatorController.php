@@ -1,28 +1,32 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\api;
 
-use App\Models\Operator;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OperatorRequest;
-use Illuminate\Http\Request;
+use App\Services\InfoService;
 
 class OperatorController extends Controller
 {
-    public function addOperatorInfo(OperatorRequest $request){
+    protected $infoService;
+
+    public function __construct(InfoService $infoService)
+    {
+        $this->infoService = $infoService;
+    }
+
+    public function addInfo(OperatorRequest $operatorRequest){
         try{
-            $validated_data = $request->validated();
-            Operator::create($validated_data);
-    
+            $validated_data = $operatorRequest->validated();
+            $this->infoService->addInfo($validated_data, 'operator');
             return response()->json([
-                "message" => "your info is added"
+                "message" => "Information added"
             ], 201);
         }catch(\Exception $e){
             return response()->json([
-                "message" => "Unexcpected error",
+                "message" => "UnExpected Error",
                 "error" => $e->getMessage()
             ], 500);
         }
     }
-
 }

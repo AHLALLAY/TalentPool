@@ -3,27 +3,59 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
-use App\Models\User;
-// use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use App\Services\AuthService;
 
 class AuthController extends Controller
 {
-    public function register(RegisterRequest $request)
+    protected $authService;
+    public function __construct(AuthService $authService)
     {
-        $validated_data = $request->validated();
+        $this->authService = $authService;
+    }
 
-        try {
-            $validated_data['password'] = bcrypt($validated_data['password']);
-            User::create($validated_data);
+    public function login(LoginRequest $loginRequest){
+        try{
+            $validated_data = $loginRequest->validated();
+            $token = $this->authService->login($validated_data);
+            return response()->json([
+                "message" => "Welcome Back",
+                "token" => $token
+            ], 200);
+        }catch(\Exception $e){
+            return response()->json([
+                "message" => "UnExpected Error While Logging",
+                "error" => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function register(RegisterRequest $registerRequest){
+        try{
+            $validated_data = $registerRequest->validated();
+            $this->authService->register($validated_data);
 
             return response()->json([
-                "message" => "User created successfully",
-            ], 201);
-        } catch (\Exception $e) {
+                "message" => "User added"
+            ] ,201);
+        }catch(\Exception $e){
             return response()->json([
-                "message" => "An unexpected error occurred. Please try again later.",
+                "message" => "UnExpected Error",
+                "error" => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function logout(){
+        try{
+            $this->authService->logout();
+            return response()->json([
+                "message" => "Good bye"
+            ], 200);
+        }catch(\Exception $e){
+            return response()->json([
+                "message" => "UnExpected Error While Exit",
                 "error" => $e->getMessage()
             ], 500);
         }

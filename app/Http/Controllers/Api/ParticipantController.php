@@ -1,43 +1,33 @@
 <?php
 
-namespace App\Http\Controllers\Api;
-use App\Models\Participant;
+namespace App\Http\Controllers\api;
+
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ApplicationRequest;
+use App\Http\Requests\OperatorRequest;
 use App\Http\Requests\ParticipantRequest;
-use App\Models\Application;
-use Illuminate\Http\Request;
+use App\Services\InfoService;
 
 class ParticipantController extends Controller
 {
-    public function addParticipantInfo(ParticipantRequest $request){
+    protected $infoService;
+
+    public function __construct(InfoService $infoService)
+    {
+        $this->infoService = $infoService;
+    }
+
+    public function addInfo(ParticipantRequest $participantRequest){
         try{
-            $validated_data = $request->validated();
-            Participant::create($validated_data);
-    
+            $validated_data = $participantRequest->validated();
+            $this->infoService->addInfo($validated_data, 'participant');
             return response()->json([
-                "message" => "your info is added"
+                "message" => "Information added"
             ], 201);
         }catch(\Exception $e){
             return response()->json([
-                "message" => "Unexcpected error",
+                "message" => "UnExpected Error",
                 "error" => $e->getMessage()
             ], 500);
         }
     }
-
-    public function addApplication(ApplicationRequest $request){
-        try{
-            $validated_data = $request->validated();
-            Application::create($validated_data);
-
-            return response()->json(["message" => "application added"], 201);
-        }catch(\Exception $e){
-            return response()->json([
-                "message" => "unexpected error",
-                "Error" => $e->getMessage()
-            ], 500);
-        }
-    }
-
 }
