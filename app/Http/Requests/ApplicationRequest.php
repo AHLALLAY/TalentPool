@@ -22,9 +22,8 @@ class ApplicationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'participant' => ['required', 'integer', 'min:1'],
-            'operator' => ['required', 'integer', 'min:1'],
-            'poste' => ['required', 'integer', 'min:1'],
+            'poste_id' => ['required', 'integer', 'min:1'],
+            'participant_id' => ['required', 'integer', 'min:1'],
         ];
     }
 }

@@ -4,9 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class OperatorRequest extends FormRequest
-{
-    /**
+class OperatorRequest extends FormRequest{
+        /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
@@ -22,9 +21,10 @@ class OperatorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => ['resuired', 'integer', 'min:1'],
-            'company' => ['required', 'string', 'max:100'],
+            'company' => ['required', 'string', 'max:50'],
             'position' => ['required', 'string', 'max:50'],
+            'contact_email' => ['required', 'string', 'email', 'max:50'],
+            'operator_id' => ['required', 'integer', 'min:1'],
         ];
     }
 }
