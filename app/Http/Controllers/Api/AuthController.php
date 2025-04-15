@@ -18,10 +18,10 @@ class AuthController extends Controller
     public function login(LoginRequest $loginRequest){
         try{
             $validated_data = $loginRequest->validated();
-            $token = $this->authService->login($validated_data);
+            $data = $this->authService->login($validated_data);
             return response()->json([
                 "message" => "Welcome Back",
-                "token" => $token
+                "data" => $data
             ], 200);
         }catch(\Exception $e){
             return response()->json([
@@ -47,16 +47,27 @@ class AuthController extends Controller
         }
     }
 
-    public function logout(){
-        try{
-            $this->authService->logout();
+    public function logout()
+    {
+        try {
+            $logoutResult = $this->authService->logout();
+            
+            if (!$logoutResult) {
+                return response()->json([
+                    "message" => "No authenticated user"
+                ], 200);
+            }
+    
             return response()->json([
-                "message" => "Good bye"
+                "message" => "Good bye",
+                "success" => true
             ], 200);
-        }catch(\Exception $e){
+    
+        } catch (\Exception $e) {
             return response()->json([
-                "message" => "UnExpected Error While Exit",
-                "error" => $e->getMessage()
+                "message" => "Logout failed",
+                "error" => $e->getMessage(),
+                "success" => false
             ], 500);
         }
     }
