@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
         // Create admin user
         DB::table('users')->insert([
             'name' => 'Admin User',
-            'email' => 'admin@example.com',
+            'email' => 'admin@gmail.com',
             'password' => Hash::make('admin'),
             'roles' => 'admin',
             'created_at' => now(),
@@ -22,10 +22,10 @@ class UserSeeder extends Seeder
         ]);
 
         // Create operator users
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 1; $i <= 7; $i++) {
             DB::table('users')->insert([
                 'name' => 'Operator ' . $i,
-                'email' => 'operator' . $i . '@example.com',
+                'email' => 'operator' . $i . '@gmail.com',
                 'password' => Hash::make('123456789'),
                 'roles' => 'operator',
                 'created_at' => now(),
@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
         for ($i = 1; $i <= 20; $i++) {
             DB::table('users')->insert([
                 'name' => 'Participant ' . $i,
-                'email' => 'participant' . $i . '@example.com',
+                'email' => 'participant' . $i . '@gmail.com',
                 'password' => Hash::make('123456789'),
                 'roles' => 'participant',
                 'created_at' => now(),
