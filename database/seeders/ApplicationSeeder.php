@@ -16,7 +16,7 @@ class ApplicationSeeder extends Seeder
             $applicantsCount = rand(3, 8);
             
             // Get random participants who haven't applied to this post yet
-            $participants = range(7, 26); // Participant user IDs
+            $participants = range(9, 20); // Participant user IDs
             shuffle($participants);
             $selectedParticipants = array_slice($participants, 0, $applicantsCount);
             

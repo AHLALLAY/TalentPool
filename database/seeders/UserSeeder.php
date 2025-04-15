@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
         ]);
 
         // Create operator users
-        for ($i = 1; $i <= 7; $i++) {
+        for ($i = 2; $i <= 8; $i++) {
             DB::table('users')->insert([
                 'name' => 'Operator ' . $i,
                 'email' => 'operator' . $i . '@gmail.com',
@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
         }
 
         // Create participant users
-        for ($i = 1; $i <= 20; $i++) {
+        for ($i = 9; $i <= 20; $i++) {
             DB::table('users')->insert([
                 'name' => 'Participant ' . $i,
                 'email' => 'participant' . $i . '@gmail.com',
