@@ -7,7 +7,7 @@ use PhpParser\Node\Expr\FuncCall;
 
 class Application extends Model
 {
-    protected $fillable = ['post_id', 'participant_id', 'status'];
+    protected $fillable = ['poste_id', 'participant_id', 'status'];
     
     public function participant() {
         return $this->belongsTo(Participant::class);

@@ -22,7 +22,7 @@ class ApplicationSeeder extends Seeder
             
             foreach ($selectedParticipants as $participantId) {
                 DB::table('applications')->insert([
-                    'post_id' => $postId,
+                    'poste_id' => $postId,
                     'participant_id' => $participantId,
                     'status' => $statuses[rand(0, 2)],
                     'created_at' => now(),
