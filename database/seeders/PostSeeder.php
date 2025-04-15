@@ -41,7 +41,7 @@ class PostSeeder extends Seeder
                 'title' => $titles[$i],
                 'description' => $descriptions[$i],
                 'expired_date' => Carbon::now()->addDays(rand(30, 90)),
-                'operator_id' => rand(2, 6), // Random operator user
+                'operator_id' => rand(2, 8), // Random operator user
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
