@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use PhpParser\Node\Expr\FuncCall;
+
 
 class Application extends Model
 {
-    protected $fillable = ['post_id', 'participant_id', 'status'];
+    protected $fillable = ['post_id', 'participant_id'];
     
     public function participant() {
-        return $this->belongsTo(Participant::class);
+        return $this->belongsTo(Participant::class, 'participant_id');
     }
     
     public function post() {

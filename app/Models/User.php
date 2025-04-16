@@ -16,11 +16,11 @@ class User extends Authenticatable implements JWTSubject
     protected function casts(){ return ['email_verified_at' => 'datetime','password' => 'hashed',];}
 
     public function operator() {
-        return $this->hasOne(Operator::class);
+        return $this->hasOne(Operator::class, 'operator_id', 'id');
     }
     
     public function participant() {
-        return $this->hasOne(Participant::class);
+        return $this->hasOne(Participant::class, 'participant_id', 'id');
     }
 
     public function getJWTIdentifier()
