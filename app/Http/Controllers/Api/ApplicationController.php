@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ApplicationRequest;
+use App\Http\Requests\ChangeStatusRequest;
 use App\Services\ApplicationService;
 
 class ApplicationController extends Controller
@@ -57,6 +58,27 @@ class ApplicationController extends Controller
                 "message" => "Unexpected Error",
                 "error" => $e->getMessage()
             ],500);
+        }
+    }
+
+    public function changeStatus(ChangeStatusRequest $request, $applicationId)
+    {
+        try {
+            $validatedData = $request->validated();
+            
+            $data = $this->applicationService->changeStatus($applicationId, $validatedData['status']);
+    
+            return response()->json([
+                'message' => 'Status updated successfully',
+                'data' => $data,
+                'status' => 'success'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Failed to update application status',
+                'error' => $e->getMessage(),
+                'status' => 'error'
+            ], 500);
         }
     }
     
