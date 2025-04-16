@@ -4,27 +4,26 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Participant;
 
 class ApplicationSeeder extends Seeder
 {
     public function run(): void
     {
-        $statuses = ['in proccess', 'accepted', 'rejected'];
+        DB::table('applications')->truncate();
+        
+        $statuses = ['in process', 'accepted', 'rejected'];
+        $participantIds = Participant::pluck('id')->toArray();
 
-        // Create applications for each post
         for ($postId = 1; $postId <= 10; $postId++) {
-            $applicantsCount = rand(3, 8);
+            $applicantsCount = rand(3, min(8, count($participantIds)));
+            shuffle($participantIds);
             
-            // Get random participants who haven't applied to this post yet
-            $participants = range(9, 20); // Participant user IDs
-            shuffle($participants);
-            $selectedParticipants = array_slice($participants, 0, $applicantsCount);
-            
-            foreach ($selectedParticipants as $participantId) {
+            foreach (array_slice($participantIds, 0, $applicantsCount) as $participantId) {
                 DB::table('applications')->insert([
                     'post_id' => $postId,
                     'participant_id' => $participantId,
-                    'status' => $statuses[rand(0, 2)],
+                    'status' => $statuses[array_rand($statuses)],
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);
