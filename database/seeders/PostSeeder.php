@@ -5,11 +5,13 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Models\Post;
 
 class PostSeeder extends Seeder
 {
     public function run(): void
     {
+        Post::truncate();
         $titles = [
             'Software Developer',
             'Web Designer',
