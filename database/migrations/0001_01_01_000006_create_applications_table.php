@@ -11,7 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('post_id')->constrained('posts')->onDelete('cascade');
             $table->foreignId('participant_id')->constrained('users')->onDelete('cascade');
-            $table->string('status')->default('in proccess');
+            $table->string('status')->default('in process');
             $table->timestamps();
         });
     }

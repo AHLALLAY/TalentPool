@@ -22,7 +22,7 @@ class ApplicationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'poste_id' => ['required', 'integer', 'min:1'],
+            'post_id' => ['required', 'integer', 'min:1'],
             'participant_id' => ['required', 'integer', 'min:1'],
         ];
     }
