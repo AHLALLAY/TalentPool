@@ -9,7 +9,7 @@ class Post extends Model
     protected $fillable = ['title', 'description', 'expired_date', 'operator_id'];
     
     public function applications() {
-        return $this->hasMany(Application::class, 'poste_id');
+        return $this->hasMany(Application::class, 'post_id');
     }
     
     public function operator() {

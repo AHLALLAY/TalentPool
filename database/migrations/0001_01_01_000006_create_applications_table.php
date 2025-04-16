@@ -9,7 +9,7 @@ return new class extends Migration {
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('poste_id')->constrained('posts')->onDelete('cascade');
+            $table->foreignId('post_id')->constrained('posts')->onDelete('cascade');
             $table->foreignId('participant_id')->constrained('users')->onDelete('cascade');
             $table->string('status')->default('in proccess');
             $table->timestamps();
