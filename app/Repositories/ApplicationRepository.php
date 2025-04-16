@@ -6,7 +6,8 @@ use App\Interfaces\ApplicationInterface;
 use App\Models\Application;
 use Illuminate\Support\Facades\App;
 
-class ApplicationRepository implements ApplicationInterface{
+class ApplicationRepository implements ApplicationInterface
+{
     public function addApplication($applicationData)
     {
         return Application::create($applicationData);
@@ -23,14 +24,29 @@ class ApplicationRepository implements ApplicationInterface{
         $applications = Application::with('post')
             ->where('participant_id', $participantId)
             ->get();
-        
+
         return $applications;
     }
+
+    public function changeStatus($applicationId, $newStatus)
+    {
+        try {
+            $application = Application::find($applicationId);
+            $application->status = $newStatus;
+            $application->save();
+
+            return $application;
+
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+
     // statistics
     public function countAppOnMyPosts($operatorId)
     {
         return Application::join('posts', 'applications.post_id', '=', 'posts.id')
-                        ->where('posts.operator_id', $operatorId)
-                        ->count();
+            ->where('posts.operator_id', $operatorId)
+            ->count();
     }
 }
