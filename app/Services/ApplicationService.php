@@ -4,7 +4,8 @@ namespace App\Services;
 
 use App\Interfaces\ApplicationInterface;
 
-class ApplicationService{
+class ApplicationService
+{
     protected $applicationRepository;
 
     public function __construct(ApplicationInterface $applicationRepository)
@@ -12,20 +13,29 @@ class ApplicationService{
         $this->applicationRepository = $applicationRepository;
     }
 
-    public function addApplication($application){
+    public function addApplication($application)
+    {
         return $this->applicationRepository->addApplication($application);
     }
 
-    public function deleteApplication($applicationId){
+    public function deleteApplication($applicationId)
+    {
         return $this->applicationRepository->deleteApplication($applicationId);
     }
 
-    public function displayMyApplications($participantId){
+    public function displayMyApplications($participantId)
+    {
         return $this->applicationRepository->displayMyApplications($participantId);
     }
 
+    public function changeStatus($applicationId, $newStatus)
+    {
+        return $this->applicationRepository->changeStatus($applicationId, $newStatus);
+    }
+
     // statistics
-    public function countAppOnMyPosts($operatorId){
+    public function countAppOnMyPosts($operatorId)
+    {
         return $this->applicationRepository->countAppOnMyPosts($operatorId);
     }
 }
