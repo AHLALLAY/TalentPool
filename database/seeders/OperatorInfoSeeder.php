@@ -12,12 +12,12 @@ class OperatorInfoSeeder extends Seeder
         $companies = ['Tech Corp', 'Innovate Ltd', 'Future Inc', 'Digital Solutions', 'Web Masters'];
         $positions = ['HR Manager', 'Recruitment Officer', 'Talent Acquisition', 'HR Director', 'CTO'];
 
-        for ($i = 2; $i <= 8; $i++) { // Users 2-6 are operators
+        for ($i = 2; $i <= 8; $i++) {
             DB::table('operators_info')->insert([
                 'company' => $companies[$i-2] . ' ' . $i,
                 'position' => $positions[$i-2],
                 'contact_email' => 'contact' . $i . '@company.com',
-                'operator_id' => $i,
+                'operator_id' => rand(2,8),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

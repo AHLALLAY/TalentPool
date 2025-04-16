@@ -9,7 +9,7 @@ class ParticipantInfoSeeder extends Seeder
 {
     public function run(): void
     {
-        for ($i = 9; $i <= 20; $i++) { // Users 7-26 are participants
+        for ($i = 9; $i <= 20; $i++) {
             DB::table('participants_info')->insert([
                 'cv' => 'cv_user_' . $i . '.pdf',
                 'motiv' => $i % 2 === 0 ? 'motivation_letter_user_' . $i . '.pdf' : null,
