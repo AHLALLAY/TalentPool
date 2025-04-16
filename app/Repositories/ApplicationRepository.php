@@ -20,8 +20,11 @@ class ApplicationRepository implements ApplicationInterface{
 
     public function displayMyApplications($participantId)
     {
-        $app = Application::where('participant_id',$participantId)->get();
-        return $app;
+        $applications = Application::with('post')
+            ->where('participant_id', $participantId)
+            ->get();
+        
+        return $applications;
     }
     // statistics
     public function countAppOnMyPosts($operatorId)
