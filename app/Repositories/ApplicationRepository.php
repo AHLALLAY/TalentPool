@@ -18,6 +18,11 @@ class ApplicationRepository implements ApplicationInterface{
         return $app->delete();
     }
 
+    public function displayMyApplications($participantId)
+    {
+        $app = Application::where('participant_id',$participantId)->get();
+        return $app;
+    }
     // statistics
     public function countAppOnMyPosts($operatorId)
     {

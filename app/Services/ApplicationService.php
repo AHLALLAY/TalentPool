@@ -20,6 +20,10 @@ class ApplicationService{
         return $this->applicationRepository->deleteApplication($applicationId);
     }
 
+    public function displayMyApplications($participantId){
+        return $this->applicationRepository->displayMyApplications($participantId);
+    }
+
     // statistics
     public function countAppOnMyPosts($operatorId){
         return $this->applicationRepository->countAppOnMyPosts($operatorId);

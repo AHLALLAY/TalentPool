@@ -46,6 +46,20 @@ class ApplicationController extends Controller
     }
 
 
+    public function displayMyApplications($participantId){
+        try{
+            $data = $this->applicationService->displayMyApplications($participantId);
+            return response()->json([
+                "data" => $data,
+            ], 200);
+        }catch(\Exception $e){
+            return response()->json([
+                "message" => "Unexpected Error",
+                "error" => $e->getMessage()
+            ],500);
+        }
+    }
+    
     // statistics
     public function countAppOnMyPosts($operatorId){
         try{

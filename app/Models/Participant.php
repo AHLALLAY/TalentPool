@@ -16,4 +16,8 @@ class Participant extends Model
     public function user() {
         return $this->belongsTo(User::class, 'participant_id', 'id');
     }
+
+    public function applications(){
+        return $this->hasMany(Application::class);
+    }
 }

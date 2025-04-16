@@ -37,4 +37,5 @@ Route::controller(ApplicationController::class)->group(function(){
     Route::post('/applications', 'addApplication');
     Route::delete('/applications/{applicationId}', 'deleteApplication');
     Route::get('/applications/posts/operator/{operatorId}', 'countAppOnMyPosts');
+    Route::get('/applications/{participantId}', 'displayMyApplications');
 });
